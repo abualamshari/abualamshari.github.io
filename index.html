@@ -193,7 +193,7 @@
             cursor: pointer;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (UPDATED) --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -202,26 +202,31 @@
             position: relative;
             padding-top: 80px;
             overflow: hidden;
+            
+            /* --- BACKGROUND IMAGE SETTING --- */
+            /* Menggunakan gambar abstrak gelap dengan filter grayscale */
+            background-image: url('https://picsum.photos/seed/darkmoody/1920/1080?grayscale');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efek Parallax */
         }
 
-        /* Background glow effect */
+        /* Dark Overlay untuk membuat teks terbaca jelas di atas gambar */
         .hero::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            filter: blur(60px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.75); /* Overlay Hitam 75% transparansi */
+            z-index: 0;
         }
 
         .hero-content {
             text-align: center;
             max-width: 800px;
-            z-index: 1;
+            z-index: 1; /* Pastikan konten di atas overlay */
         }
 
         .hero-tag {
@@ -231,7 +236,7 @@
             border-radius: 30px;
             font-size: 0.85rem;
             margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
         }
 
@@ -240,11 +245,13 @@
             margin-bottom: 24px;
             letter-spacing: -2px;
             line-height: 1;
+            /* Text shadow tambahan agar lebih kontras di atas gambar */
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         .hero p {
             font-size: 1.125rem;
-            color: var(--text-muted);
+            color: #e0e0e0; /* Sedikit lebih terang dari muted agar kontras dengan bg gambar */
             margin-bottom: 40px;
         }
 
